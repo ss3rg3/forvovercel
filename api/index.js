@@ -1,3 +1,3 @@
-module.exports = (req, res) => {
-   res.send('Hello World!');
+export default async function handler(req, res){
+   res.status(200).send(`API`);
 };

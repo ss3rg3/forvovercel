@@ -23,8 +23,19 @@
 - Deploy (link project and such)
 
   ```bash
-  vercel			# for preview
+  vercel			# for preview, separate URL will be provided
   vercel --prod	# deploy
   ```
 
+
+
+# Development
+
+- Run locally
+
+  ```
+  vercel dev
+  ```
+
   
+

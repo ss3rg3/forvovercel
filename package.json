@@ -1,1 +1,7 @@
-{"dependencies":{"vercel":"^31.1.1"}}
+{
+  "type": "module",
+  "dependencies": {
+    "got": "^13.0.0",
+    "vercel": "^31.1.1"
+  }
+}
