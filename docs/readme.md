@@ -11,7 +11,7 @@
 - Add path to local bin directory.
 
   ```bash
-  export PATH=$PATH:/home/cc/Desktop/Programming/repos/forvovercel/node_modules/.bin
+  export PATH=$PATH:/PATH_ON_YOUR_MACHINE/forvovercel/node_modules/.bin
   ```
 
 - Login
@@ -39,3 +39,20 @@
 
   
 
+# Usage
+
+- In your app, call with your API key:
+
+  ```
+  https://forvovercel.vercel.app/api/mp3?key=XXXXXXXXXXXXXX&word=怎么样
+  ```
+
+- The function will fetch the available list of MP3s and select the newest one. The ones with the most rating are mostly the oldest ones and have actually worse audio quality. If no MP3 is found, then a 404 is returned.
+
+- The resulting JSON complies with the [Yomichan schema](chrome-extension://ogmnaimimemjmbakcfefmnahgdfhfami/data/schemas/custom-audio-list-schema.json)
+
+
+
+# Yomichan
+
+- Doesn't work. There seems to be a problem with the JSON for Yomichan. No error given, only on 404 there's an error in the console.
