@@ -15,8 +15,13 @@ export default async function handler(req, res) {
     const url = `https://apifree.forvo.com/key/${key}/format/json/action/word-pronunciations/word/${word}/language/${lang}`
     return await got(url)
         .then(response => {
-            console.log(JSON.stringify(JSON.parse(response.body), null, 2))
-            return res.status(200).json(getNewestItem(response.body));
+            // todo 404 on empty result
+            console.log(JSON.stringify(JSON.parse(response.body), null, 2));
+            const items = getNewestItem(response.body);
+            if (items) {
+                return res.status(200).json(items);
+            }
+            return res.status(404).json({});
         })
         .catch(error => {
             return res.status(400).send(`
@@ -35,5 +40,16 @@ function getNewestItem(data) {
 
     let items = data.items;
     items.sort((a, b) => new Date(b.addtime) - new Date(a.addtime)); // Sort the items array by the 'addtime' property in descending order
-    return items[0];
+    if (items.length === 0) {
+        return null;
+    }
+    return {
+        type: "audioSourceList",
+        audioSources: [
+            {
+                name: items[0].word,
+                url: items[0].pathmp3
+            }
+        ]
+    };
 }
