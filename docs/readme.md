@@ -31,13 +31,13 @@
 
 # Development
 
-- Run locally
+Run locally
 
-  ```
-  vercel dev
-  ```
+```
+vercel dev
+```
 
-  
+
 
 # Usage
 
@@ -55,4 +55,4 @@
 
 # Yomichan
 
-- Doesn't work. There seems to be a problem with the JSON for Yomichan. No error given, only on 404 there's an error in the console.
+You need to run the Vercel app locally in `dev` move. Forvo doesn't seem to serve the MP3 if the download is done from a different IP which made the API call.
